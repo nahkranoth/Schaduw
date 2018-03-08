@@ -9,6 +9,6 @@ export default class Main extends Phaser.Scene{
     }
 
     create(){
-        
+
     }
 }
