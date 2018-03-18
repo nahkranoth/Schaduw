@@ -26,7 +26,7 @@ export default class Main extends Phaser.Scene{
         console.log(this.textures);
         this.textures.generate("light",{data:["1"], pixelWidth:800, pixelHeight:600});
         //his.add.image(0, 0, 'light');
-        this.player = this.physics.add.sprite(180, 320, 'player_sprite').setBounce(0.1);
+        this.player = this.physics.add.sprite(180, 320, 'player_sprite');
         this.worldManager = new WorldManager(this);
 
         this.cameras.main.setBounds(0, 0, this.worldManager.map.widthInPixels, this.worldManager.map.heightInPixels);
@@ -34,6 +34,7 @@ export default class Main extends Phaser.Scene{
         this.lightImg = this.add.sprite(400, 300, 'light');
         this.lightImg.depth = 100;
         this.lightImg.setPipeline('CustomLight');
+        this.lightImg.setScrollFactor(0);
         this.physics.add.collider(this.player, this.worldManager.groundLayer);
         this.cursors = this.input.keyboard.createCursorKeys();
     }
@@ -58,10 +59,7 @@ export default class Main extends Phaser.Scene{
 
     update(){
         this.player.body.setVelocityX(0);
-        this.worldManager.update();
-        this.lightingPipeline.update();
 
-        this.lightingPipeline.setSourcePos(this.player.body.x, this.player.body.y);
 
         if(this.cursors.right.isDown) {
             this.player.body.setVelocityX(100 + Math.min(this.momentum, this.momentumCap));
@@ -84,7 +82,7 @@ export default class Main extends Phaser.Scene{
             this.jump_toggle = false;
         }
 
-        if(this.cursors.down.isDown ) {
+        if(this.cursors.down.isDown && !this.player.body.onFloor()) {
             this.dashDown();
         }
 
@@ -100,8 +98,10 @@ export default class Main extends Phaser.Scene{
             this.player.body.setVelocityY(0);
             this.player.body.setGravityY(0);
         }
+        this.worldManager.update();
+        this.lightingPipeline.update();
+        // console.log(this.player.body.y);
+        this.lightingPipeline.setSourcePos(this.player.body.x, this.player.body.y);
 
-        this.lightImg.x = this.cameras.main.scrollX + this.textures.game.config.width/2;
-        this.lightImg.y = this.cameras.main.scrollY + this.textures.game.config.height/2;
     }
 }

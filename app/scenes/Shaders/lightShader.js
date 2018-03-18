@@ -46,7 +46,9 @@ export default class LightShader{
                  //vec4 img = texture2D(uTexture, vTexCoord);
                  vec2 uv = gl_FragCoord.xy / uResolution;
                  
-                 vec2 source = normVector(applyCameraTransformation(uSourcePos));
+                 vec2 sourcePos = vec2 (uSourcePos.x + (uTileDimension.x/2.0), uSourcePos.y + (uTileDimension.y/2.0));
+                 
+                 vec2 source = normVector(applyCameraTransformation(sourcePos));
                  vec2 tileSize = normVector(uTileDimension);
                  vec4 clr = vec4(0., 1., 1., 0.);
                  
@@ -61,23 +63,24 @@ export default class LightShader{
                     vec2 face_c = flip( vec2(uF.x, uF.y + tileSize.y) );
                     vec2 face_d = flip( vec2(uF.x + tileSize.x, uF.y + tileSize.y) );
                     
+                    vec2 f_source = vec2(source.x, 1.-source.y);
                     
-                     if(intersects(source , uv , face_a , face_b)){
+                     if(intersects(f_source , uv , face_a , face_b)){
                         clr = vec4(0., 0., 0., 0.);
                         break;
                      }
 
-                     if(intersects(source , uv , face_c , face_d)){
+                     if(intersects(f_source , uv , face_c , face_d)){
                         clr = vec4(0., 0., 0., 0.);
                         break;
                      }
                      
-                     if(intersects(source , uv , face_a , face_c)){
+                     if(intersects(f_source , uv , face_a , face_c)){
                         clr = vec4(0., 0., 0., 0.);
                         break;
                      }
                      
-                     if(intersects(source , uv , face_b , face_d)){
+                     if(intersects(f_source , uv , face_b , face_d)){
                         clr = vec4(0., 0., 0., 0.);
                         break;
                      }
@@ -102,10 +105,10 @@ export default class LightShader{
                     //     break;
                     // }
                     //
-                    // if(inRange(uv.x, source.x, 0.01) && inRange(uv.y, source.y, 0.01)){
-                    //     clr = vec4(0., 0., 0., 0.);
-                    //     break;
-                    // }
+                    if(inRange(uv.x, source.x, 0.01) && inRange(uv.y, f_source.y, 0.01)){
+                        clr = vec4(1., 1., 0., 0.);
+                        break;
+                    }
                  }
                  
                  gl_FragColor = clr;
