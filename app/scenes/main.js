@@ -15,9 +15,16 @@ export default class Main extends Phaser.Scene{
     }
 
     preload(){
-        this.load.image('level_tm', 'level_tm.png');
+        this.load.image('hitlayer', 'DarkCity/backgrnd.png');
+        this.load.image('building1', 'DarkCity/building1.png');
+        this.load.image('building3', 'DarkCity/building3.png');
+        this.load.image('building1_intern', 'DarkCity/building1_intern.png');
+        this.load.image('neonSign', 'DarkCity/neonSign.png');
+        this.load.image('neonSigns2', 'DarkCity/neonSigns2.png');
+        this.load.image('sign1', 'DarkCity/sign1.png');
+
         this.load.spritesheet('player_sprite', 'player_tm.png',{ frameWidth: 32, frameHeight: 32 });
-        this.load.tilemapTiledJSON('map', 'map2.json');
+        this.load.tilemapTiledJSON('map', 'DarkCity/DarkCity.json');
         this.lightingPipeline = this.textures.game.renderer.addPipeline('CustomLight', new LightingPipeLine(this, this.textures.game));
 
     }

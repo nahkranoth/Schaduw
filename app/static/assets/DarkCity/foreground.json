@@ -1,0 +1,167 @@
+{
+	"textures": [
+		{
+			"image": "foreground.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 320,
+				"h": 1824
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "building1.png",
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 318,
+						"h": 286
+					},
+					"rotated": false,
+					"trimmed": true,
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 318,
+						"h": 286
+					},
+					"sourceSize": {
+						"w": 288,
+						"h": 256
+					}
+				},
+				{
+					"filename": "building1_intern.png",
+					"frame": {
+						"x": 1,
+						"y": 289,
+						"w": 318,
+						"h": 286
+					},
+					"rotated": false,
+					"trimmed": true,
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 318,
+						"h": 286
+					},
+					"sourceSize": {
+						"w": 288,
+						"h": 256
+					}
+				},
+				{
+					"filename": "building3.png",
+					"frame": {
+						"x": 1,
+						"y": 577,
+						"w": 318,
+						"h": 286
+					},
+					"rotated": false,
+					"trimmed": true,
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 318,
+						"h": 286
+					},
+					"sourceSize": {
+						"w": 288,
+						"h": 256
+					}
+				},
+				{
+					"filename": "neonSign.png",
+					"frame": {
+						"x": 1,
+						"y": 865,
+						"w": 318,
+						"h": 286
+					},
+					"rotated": false,
+					"trimmed": true,
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 318,
+						"h": 286
+					},
+					"sourceSize": {
+						"w": 288,
+						"h": 256
+					}
+				},
+				{
+					"filename": "sign2.png",
+					"frame": {
+						"x": 1,
+						"y": 1153,
+						"w": 318,
+						"h": 286
+					},
+					"rotated": false,
+					"trimmed": true,
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 318,
+						"h": 286
+					},
+					"sourceSize": {
+						"w": 288,
+						"h": 256
+					}
+				},
+				{
+					"filename": "neonSigns2.png",
+					"frame": {
+						"x": 1,
+						"y": 1441,
+						"w": 318,
+						"h": 190
+					},
+					"rotated": false,
+					"trimmed": true,
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 318,
+						"h": 190
+					},
+					"sourceSize": {
+						"w": 288,
+						"h": 160
+					}
+				},
+				{
+					"filename": "sign1.png",
+					"frame": {
+						"x": 1,
+						"y": 1633,
+						"w": 254,
+						"h": 190
+					},
+					"rotated": false,
+					"trimmed": true,
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 254,
+						"h": 190
+					},
+					"sourceSize": {
+						"w": 224,
+						"h": 160
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:7f1e696e64cb620148a39483be33ca74:29ed08be16473270cb97cf69de1dd77f:20b5906f0bac1da75cd96cd822731771$"
+	}
+}

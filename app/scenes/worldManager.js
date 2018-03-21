@@ -4,9 +4,11 @@ export default class WorldManager {
         this.culledFaces = [];
         this.game = game;
         this.map = game.add.tilemap('map');
-        let groundTiles = this.map.addTilesetImage('level_tm');
-        this.groundLayer = this.map.createDynamicLayer('Ground Layer', groundTiles);
-        this.groundLayer.setCollisionBetween(1, 2);
+        let groundTiles = this.map.addTilesetImage('hitlayer');
+        let building1Tiles = this.map.addTilesetImage('building1');
+        this.groundLayer = this.map.createDynamicLayer('HitTest', groundTiles);
+        this.foregroundLayer = this.map.createDynamicLayer('ForeGround', building1Tiles);
+        this.groundLayer.setCollisionBetween(0, 9999);
         this.updateFaces();
     }
 
